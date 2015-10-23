@@ -9,6 +9,7 @@ app = Celery('tasks', backend='amqp', broker='amqp://')
 def get_unique_tweets(url):
     print("Now opening " + url)
     data = urllib2.urlopen(url)
+    print("Url successfully opened.")
     objs = []
     for line in data:
         while True:

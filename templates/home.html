@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbo">
+  <h2>Welcome to Pronouncount<h2>
+      <h3>Simply press the button to start the program<h3>
+</div>
+
+<form action="/count" method="post">
+  <input type="submit" value="Count"></input>
+</form>
+{% endblock %}

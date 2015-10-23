@@ -18,4 +18,4 @@ data = {}
 for word in words:
     data[word] = count[words.index(word)]
 json_data = json.dumps(data)
-return json_data
+print(json_data)

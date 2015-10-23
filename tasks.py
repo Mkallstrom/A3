@@ -7,6 +7,7 @@ app = Celery('tasks', backend='amqp', broker='amqp://')
 
 @app.task
 def get_unique_tweets(data):
+    print("Now getting unique tweets")
     objs = []
     for line in data:
         while True:
@@ -27,9 +28,11 @@ def get_unique_tweets(data):
 
 @app.task
 def count_word(objs, word):
+    print("Now counting occurences of " + word)
     count = 0
     for obj in objs:
         count += obj['text'].count(word)
+    print("Found " + str(count) + " occurences of " + word)
     return count
 
 @app.task
@@ -46,5 +49,3 @@ def run():
             counts[words.index(word)] += count_word(objs, word)
         tweetpointer += 1;
     return (words, counts)
-
-print(run())

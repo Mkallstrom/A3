@@ -1,7 +1,5 @@
 from tasks import get_unique_tweets
-from tasks import count_word
 
-print("Running run")
 counts = [0,0,0,0,0,0,0]
 words = ["han","hon","den","det","denna","denne","hen"]
 
@@ -16,5 +14,8 @@ while(tweetpointer <= tweetnum):
         c += fcounts[counts.index(c)]
     tweetpointer += 1;
 print(words,counts)
-
-print("Done running run")
+data = {}
+for word in words:
+    data[word] = count[words.index(word)]
+json_data = json.dumps(data)
+return json_data

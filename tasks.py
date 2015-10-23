@@ -19,8 +19,10 @@ def get_unique_tweets(data):
                 try:
                     line+= next(data)
                 except StopIteration:
+                    print("Returned from exception")
                     return objs
-
+                    
+    print("Returned normally")
     return objs
 
 @app.task

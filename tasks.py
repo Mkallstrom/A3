@@ -16,7 +16,10 @@ def get_unique_tweets(data):
                     objs.append(jfile)
                 break
             except ValueError:
-                line+= next(data)
+                try:
+                    line+= next(data)
+                except StopIteration:
+                    return objs
 
     return objs
 

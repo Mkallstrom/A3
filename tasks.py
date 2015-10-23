@@ -43,7 +43,9 @@ def run():
     tweetpointer = 0
     tweetnum = 19
     while(tweetpointer <= tweetnum):
-        data = urllib2.urlopen("http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_" + str(tweetpointer) + ".txt")
+        url = "http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_" + str(tweetpointer) + ".txt")
+        print("Now opening " + url)
+        data = urllib2.urlopen(url)
         objs = get_unique_tweets(data)
         for word in words:
             counts[words.index(word)] += count_word(objs, word)

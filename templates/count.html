@@ -13,8 +13,9 @@ function GenerateTable() {
     var jsonobj = JSON.parse(data);
     //Build an array containing Customer records.
     var customers = [];
-    for(elem in data) {
-         customers.push(data[elem]);
+    customers.push(["Pronoun", "Occurences"]);
+    for(elem in jsonobj) {
+         customers.push([elem.word, elem.count]);
     }
  
     //Create a HTML Table element.

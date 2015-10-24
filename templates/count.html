@@ -6,24 +6,24 @@
  <hr />
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <script type="text/javascript">
-$(function() {
+  $(function() {
     var object = {{ obj|tojson }};
     var jsonobj = JSON.parse(object);
-
+  
     $('#container').highcharts({
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Historic World Population by Region'
-        },
-        subtitle: {
-            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
-        },
-        xAxis: {
-            categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-            title: {
-                text: null
+      chart: {
+        type: 'bar'
+      },
+      title: {
+        text: 'Historic World Population by Region'
+      },
+      subtitle: {
+        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+      },
+  xAxis: {
+  categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+  title: {
+  text: null
             }
         },
         yAxis: {

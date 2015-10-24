@@ -3,6 +3,7 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/data.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <div class="jumbo">
   <h2>Count<h2>
       <h3>Results are shown below.<h3>
@@ -11,70 +12,23 @@
 <div id="dvTable">
 </div>
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-<script type="text/javascript">
-function GenerateTable() {
+<script>
+$( document ).ready(function() {
     var data = {{ obj|tojson }};
     var jsonobj = JSON.parse(data);
-    //Build an array containing Customer records.
-    var customers = [];
-    customers.push(["Pronoun", "Occurences"]);
-    for(elem in jsonobj) {
-         customers.push([elem, jsonobj[elem]]);
-    }
- 
-    //Create a HTML Table element.
-    var table = document.createElement("TABLE");
-    table.border = "1";
- 
-    //Get the count of columns.
-    var columnCount = customers[0].length;
- 
-    //Add the header row.
-    var row = table.insertRow(-1);
-    for (var i = 0; i < columnCount; i++) {
-        var headerCell = document.createElement("TH");
-        headerCell.innerHTML = customers[0][i];
-        row.appendChild(headerCell);
-    }
- 
-    //Add the data rows.
-    for (var i = 1; i < customers.length; i++) {
-        row = table.insertRow(-1);
-        for (var j = 0; j < columnCount; j++) {
-            var cell = row.insertCell(-1);
-            cell.innerHTML = customers[i][j];
-        }
-    }
- 
-    var dvTable = document.getElementById("dvTable");
-    dvTable.innerHTML = "";
-    dvTable.appendChild(table);
-
-    $('#container').highcharts({
-        data: {
-            table: 'table'
-        },
+    
+    var options = {
         chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Data extracted from a HTML table in the page'
-        },
-        yAxis: {
-            allowDecimals: false,
-            title: {
-                text: 'Units'
-            }
-        },
-        tooltip: {
-            formatter: function () {
-                return '<b>' + this.series.name + '</b><br/>' +
-                    this.point.y + ' ' + this.point.name.toLowerCase();
-            }
-        }
-    });
+            renderTo: 'container',
+            type: 'spline'
+        };
+
+$.getJSON(jsonobj, function(data) {
+     options.series[0].data = data;
+     var chart = new Highcharts.Chart(options);
+});
+
 			    
-}
-window.onload = GenerateTable
+});
 </script>
 {% endblock %}

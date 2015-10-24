@@ -21,7 +21,7 @@ def count_pronouns():
         tweetpointer += 1;
     data = {}
     for word in words:
-        data[word] = count[words.index(word)]
+        data[word] = counts[words.index(word)]
     json_data = json.dumps(data)
     return(json_data)
 

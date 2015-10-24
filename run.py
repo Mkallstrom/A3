@@ -12,4 +12,4 @@ def count():
     return render_template('count.html', count_pronouns())
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')

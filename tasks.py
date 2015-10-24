@@ -11,7 +11,7 @@ def count_pronouns():
     words = ["han","hon","den","det","denna","denne","hen"]
 
     tweetpointer = 0
-    tweetnum = 19
+    tweetnum = 0
 
     while(tweetpointer <= tweetnum):
         url = "http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_" + str(tweetpointer) + ".txt"

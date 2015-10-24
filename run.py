@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template('home.html')
 
-@app.route('/count', methods=['GET'])
+@app.route('/count', methods=['POST'])
 def count():
     return render_template('count.html', count_pronouns())
 

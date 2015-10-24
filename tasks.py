@@ -16,11 +16,9 @@ def count_pronouns():
     while(tweetpointer <= tweetnum):
         url = "http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_" + str(tweetpointer) + ".txt"
         (words,fcounts) = get_unique_tweets(url) 
-        print(words,fcounts)
         for c in counts:
             c += fcounts[counts.index(c)]
         tweetpointer += 1;
-    print(words,counts)
     data = {}
     for word in words:
         data[word] = count[words.index(word)]
@@ -37,8 +35,8 @@ def get_unique_tweets(url):
     for line in data:
         while True:
             try:
+                print("fjson")
                 jfile = json.loads(line)
-                print("Found json")
                 if not(jfile['text'].startswith("RT")):
                     for word in words:
                         counts[words.index(word)] += jfile['text'].count(word)
@@ -50,3 +48,6 @@ def get_unique_tweets(url):
                     return (words,counts)
                     
     return (words,counts)
+
+obj = count_pronouns()
+print(obj)

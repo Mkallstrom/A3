@@ -21,7 +21,7 @@ $( document ).ready(function() {
 
     for(i=0;i<jsonobj.length;i++) {
     pronouns[i] = jsonobj[i];
-    counts[i] = jsonobj[i][pronouns[i]];
+    counts[i] = 0;
     var temp = new Array(pronoun[i],counts[i]);
     dataArray[i] = temp;				  
 }

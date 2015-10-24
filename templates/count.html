@@ -10,12 +10,10 @@
 <script type="text/javascript">
 function GenerateTable() {
     //Build an array containing Customer records.
-    var customers = new Array();
-    customers.push(["Customer Id", "Name", "Country"]);
-    customers.push([1, "John Hammond", "United States"]);
-    customers.push([2, "Mudassar Khan", "India"]);
-    customers.push([3, "Suzanne Mathews", "France"]);
-    customers.push([4, "Robert Schidner", "Russia"]);
+    var customers = [];
+    for(elem in obj) {
+         customers.push(obj[elem]);
+    }
  
     //Create a HTML Table element.
     var table = document.createElement("TABLE");

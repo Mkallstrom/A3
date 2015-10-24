@@ -12,7 +12,7 @@ def count_pronouns():
     for word in words:
         data[word] = 0
     tweetpointer = 0
-    tweetnum = 0
+    tweetnum = 19
 
     while(tweetpointer <= tweetnum):
         url = "http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_" + str(tweetpointer) + ".txt"

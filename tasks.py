@@ -35,7 +35,6 @@ def get_unique_tweets(url):
     for line in data:
         while True:
             try:
-                print("fjson")
                 jfile = json.loads(line)
                 if not(jfile['text'].startswith("RT")):
                     for word in words:
@@ -45,6 +44,8 @@ def get_unique_tweets(url):
                 try:
                     line+= next(data)
                 except StopIteration:
+                    print("Result for " + url + " = ")
+                    print(counts)
                     return (words,counts)
                     
     return (words,counts)

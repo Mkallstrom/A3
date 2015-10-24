@@ -20,10 +20,10 @@ def count_pronouns():
             c += fcounts[counts.index(c)]
         tweetpointer += 1;
     data = {}
-    print(fcounts)
     for word in words:
         data[word] = counts[words.index(word)]
-    json_data = json.dumps(data)
+    print(data)
+    json_data = json(data)
     return(json_data)
 
 @app.task

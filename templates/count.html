@@ -10,10 +10,11 @@
     var object = {{ obj|tojson }};
     var jsonobj = JSON.parse(object);
 
-    var values = new Array();
+    var values = [];
 
-    for (elem in object){
-        values.push(object[elem]);
+    for (elem in jsonobj){
+        values.push(jsonobj[elem]);
+    window.alert(values);
 }
   
     $('#container').highcharts({

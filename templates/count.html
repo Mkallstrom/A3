@@ -5,9 +5,36 @@
       <h3>Results are shown below.<h3>
 </div>
 
-<p id="demo"></p>
-
 <script>
-  document.getElementById("demo").innerHTML = obj.han;
+var data = obj;
+
+// Create a new table
+var table = document.createElement("table");
+
+// Add the table header
+var tr = document.createElement('tr');
+var leftRow = document.createElement('td');
+leftRow.innerHTML = "Name";
+tr.appendChild(leftRow);
+var rightRow = document.createElement('td');
+rightRow.innerHTML = "Value";
+tr.appendChild(rightRow);
+table.appendChild(tr);
+
+// Add the table rows
+for (var name in data) {
+    var value = data[name];
+    var tr = document.createElement('tr');
+    var leftRow = document.createElement('td');
+    leftRow.innerHTML = name;
+    tr.appendChild(leftRow);
+    var rightRow = document.createElement('td');
+    rightRow.innerHTML = value;
+    tr.appendChild(rightRow);
+    table.appendChild(tr);
+}
+
+// Add the created table to the HTML page
+document.body.appendChild(table);
 </script>
 {% endblock %}

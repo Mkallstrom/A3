@@ -15,7 +15,7 @@ function GenerateTable() {
     var customers = [];
     customers.push(["Pronoun", "Occurences"]);
     for(elem in jsonobj) {
-         customers.push([elem, jsonobj.elem]);
+         customers.push([elem, jsonobj.'elem']);
     }
  
     //Create a HTML Table element.

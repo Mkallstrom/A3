@@ -13,11 +13,9 @@
     var values = [];
 
     for (elem in jsonobj){
-        values.push(jsonobj[elem]);
+        values.push(parseInt(jsonobj[elem]));
     }
   window.alert(values);
-  window.alert(object);
-  window.alert(jsonobj);
   
     $('#container').highcharts({
       chart: {

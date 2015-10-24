@@ -9,6 +9,8 @@
   $(document).ready(function() {
     var object = {{ obj|tojson }};
     var jsonobj = JSON.parse(object);
+
+    
   
     $('#container').highcharts({
       chart: {
@@ -59,11 +61,11 @@
         },
         series: [{
             name: 'Han',
-            data: object.han
+            data: jsonobj[0]
         },
         {
             name: 'Hon',
-            data: jsonobj.hon
+            data: jsonobj[1]
         }]
 });
 });

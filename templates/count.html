@@ -7,10 +7,7 @@
 <div class="jumbo">
   <h2>Count<h2>
       <h3>Results are shown below.<h3>
-</div>
  <hr />
-<div id="dvTable">
-</div>
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <script>
 $( document ).ready(function() {
@@ -21,7 +18,9 @@ $( document ).ready(function() {
         chart: {
             renderTo: 'container',
             type: 'spline'
-        };
+        },
+        series: [{}]
+    };
 
 $.getJSON(jsonobj, function(data) {
      options.series[0].data = data;

@@ -38,9 +38,10 @@ def get_unique_tweets(url):
         while True:
             try:
                 jfile = json.loads(line)
+                print("Found json")
                 if not(jfile['text'].startswith("RT")):
                     for word in words:
-                        counts[words.index(word)] += jfile['text'].count(word) 
+                        counts[words.index(word)] += jfile['text'].count(word)
                 break
             except ValueError:
                 try:

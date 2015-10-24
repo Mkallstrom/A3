@@ -6,7 +6,7 @@
  <hr />
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <script type="text/javascript">
-  $(function() {
+  $(document).ready(function() {
     var object = {{ obj|tojson }};
     var jsonobj = JSON.parse(object);
   
@@ -20,13 +20,13 @@
       subtitle: {
         text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
       },
-  xAxis: {
-  categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-  title: {
-  text: null
-            }
-        },
-        yAxis: {
+      xAxis: {
+        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+        title: {
+          text: null
+        }
+      },
+      yAxis: {
             min: 0,
             title: {
                 text: 'Population (millions)',
@@ -70,6 +70,7 @@
             name: 'Year 2012',
             data: [1052, 954, 4250, 740, 38]
         }]
+});
 });
 </script>
 {% endblock %}

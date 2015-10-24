@@ -1,29 +1,13 @@
-$.makeTable = function (mydata) {
-            var table = $('<table border=1>');
-            var tblHeader = "<tr>";
-            for (var k in mydata[0]) tblHeader += "<th>" + k + "</th>";
-            tblHeader += "</tr>";
-            $(tblHeader).appendTo(table);
-            $.each(mydata, function (index, value) {
-                var TableRow = "<tr>";
-                $.each(value, function (key, val) {
-                    TableRow += "<td>" + val + "</td>";
-                });
-                TableRow += "</tr>";
-                $(table).append(TableRow);
-            });
-            return ($(table));
-        };
-
 {% extends "layout.html" %}
 {% block content %}
 <div class="jumbo">
   <h2>Count<h2>
       <h3>Results are shown below.<h3>
 </div>
+
+<p id="demo"></p>
+
 <script>
-  var mydata = obj;
-  var table = $.makeTable(mydata);
-  $(table).appendTo("#jumbo");
+  document.getElementById("demo").innerHTML = obj.han;
 </script>
 {% endblock %}

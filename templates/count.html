@@ -13,6 +13,18 @@
 $( document ).ready(function() {
     var object = {{ obj|tojson }};
     var jsonobj = JSON.parse(object);
+
+    var pronouns = Array();
+    var counts = Array();
+
+    var dataArray = Array();
+
+    for(i=0;i<jsonobj.length;i++) {
+    pronouns[i] = jsonobj[i];
+    counts[i] = jsonobj[i][pronouns[i]];
+    var temp = new Array(pronoun[i],counts[i]);
+    dataArray[i] = temp;				  
+}
     
     var options = {
         chart: {
@@ -22,7 +34,7 @@ $( document ).ready(function() {
         series: [{}]
     };
 
-$.getJSON(object, function(data) {
+$.getJSON(dataArray, function(data) {
      options.series[0].data = data;
      var chart = new Highcharts.Chart(options);
 });

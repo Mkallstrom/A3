@@ -16,6 +16,7 @@ def count_pronouns():
     while(tweetpointer <= tweetnum):
         url = "http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_" + str(tweetpointer) + ".txt"
         (words,fcounts) = get_unique_tweets(url) 
+        print(fcounts)
         for c in counts:
             c += fcounts[counts.index(c)]
         tweetpointer += 1;
@@ -44,8 +45,6 @@ def get_unique_tweets(url):
                 try:
                     line+= next(data)
                 except StopIteration:
-                    print("Result for " + url + " = ")
-                    print(counts)
                     return (words,counts)
                     
     return (words,counts)

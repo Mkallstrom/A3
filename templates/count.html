@@ -9,10 +9,10 @@
 </div>
 <script type="text/javascript">
 function GenerateTable() {
-    var jsonobj = {{obj}};
+    var jsonobj = {{obj|tojson}};
     //Build an array containing Customer records.
     var customers = [];
-    for(elem in obj) {
+    for(elem in jsonobj) {
          customers.push(obj[elem]);
     }
  

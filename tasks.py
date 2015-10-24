@@ -46,6 +46,3 @@ def get_unique_tweets(url):
                     return (words,counts)
                     
     return (words,counts)
-
-obj = count_pronouns()
-print(obj)

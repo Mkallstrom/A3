@@ -9,7 +9,8 @@ def index():
 
 @app.route('/count', methods=['POST'])
 def count():
-    return render_template('count.html', count_pronouns())
+    obj = count_pronouns()
+    return render_template('count.html', obj)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

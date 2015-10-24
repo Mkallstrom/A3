@@ -7,9 +7,10 @@ app = Celery('tasks', backend='amqp', broker='amqp://')
 
 @app.task
 def count_pronouns():
-    counts = [0,0,0,0,0,0,0]
     words = ["han","hon","den","det","denna","denne","hen"]
     data = {}
+    for word in words:
+        data[word] = 0
     tweetpointer = 0
     tweetnum = 0
 

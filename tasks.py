@@ -18,7 +18,7 @@ def count_pronouns():
         url = "http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_" + str(tweetpointer) + ".txt"
         (words,fcounts) = get_unique_tweets(url) 
         for c in fcounts:
-            data[words.index(c)] = str(int(data[words.index(c)]) + c)
+            data[words[fcounts.index(c)]] = str(int(data[words.index(c)]) + c)
         tweetpointer += 1;
     json_data = json.dumps(data)
     return(json_data)

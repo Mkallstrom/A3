@@ -39,7 +39,8 @@ def get_unique_tweets(url):
                     strings = jfile['text'].split(" ")
                     for word in words:
                         for string in strings:
-                            counts[words.index(word)] += string.lower().count(word)
+                            if(string.lower()==word):
+                                counts[words.index(word)] += 1
                 break
             except ValueError:
                 try:

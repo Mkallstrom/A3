@@ -10,7 +10,11 @@
     var object = {{ obj|tojson }};
     var jsonobj = JSON.parse(object);
 
-    
+    var values = new Array();
+
+    for (elem in jsonobj){
+        values.push(obj[elem]);
+}
   
     $('#container').highcharts({
       chart: {
@@ -61,7 +65,7 @@
         },
         series: [{
             name: 'Pronouns',
-            data: [jsonobj.han, jsonobj.hon, jsonobj.den, jsonobj.det, jsonobj.denna, jsonobj.denne, jsonobj.hen]
+            data: values
         }]
 });
 });

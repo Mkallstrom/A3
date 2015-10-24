@@ -31,12 +31,14 @@ $( document ).ready(function() {
             renderTo: 'container',
             type: 'spline'
         },
-        series: [{}]
-    };
-
-$.getJSON(dataArray, function(data) {
-     options.series[0].data = data;
-     var chart = new Highcharts.Chart(options);
+        series: [{
+				  type: 'pie',
+				  name: 'Pronouns',
+				  data: dataArray
+    }]
+  };
+    var chart = new Highcharts.Chart(options);
+     
 });
 
 			    
